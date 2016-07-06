@@ -42,3 +42,14 @@ body {}
     padding-right: 30px;
 }
 /*------------------------*/
+
+/*styling for profile page*/
+.titles {
+    text-decoration: underline; 
+}
+
+.labels {
+    color: #337AB7; 
+}
+
+/*------------------------*/
