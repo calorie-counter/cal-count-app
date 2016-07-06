@@ -18,381 +18,383 @@
             <!--    what do we want "goals" section to look like?    -->
         </div>
 
-    <div class="goals">
-        <h4>Goals</h4>
-        <!--    what do we want "goals" section to look like?    -->
-        <!-- progress bar values are hardcoded and will need to be changed to be dynamic -->
-        <div class="progress">
-            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-                40%
+        <div class="goals">
+            <h4>Goals</h4>
+            <!--    what do we want "goals" section to look like?    -->
+            <!-- progress bar values are hardcoded and will need to be changed to be dynamic -->
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                    40%
+                </div>
             </div>
         </div>
-    </div>
         <!--  /////////END OF GOALS/////////  -->
 
-    <div class="row viewTabs">
-        <!--  /////////NG SWITCHES/////////  -->
+        <div class="row viewTabs">
+            <!--  /////////NG SWITCHES/////////  -->
 
-        <div class="switches">
-            <!--    nav-tabs        -->
-            <ul class="nav nav-pills">
-                <li role="presentation" ng-class="{'active': tabName=='day'}"><a ng-click="tabName='day'; trackFoodDay(date)">Day</a></li>
-                <li role="presentation" ng-class="{'active': tabName=='month'}"><a ng-click="tabName='month'">Month</a></li>
-                <li role="presentation" ng-class="{'active': tabName=='year'}"><a ng-click="tabName='year'">Year</a></li>
-            </ul>
-            <!-- /nav-tabs -->
-            <div class="row well">
-                <!-- content box -->
-                <div class="content-box" ng-switch on="tabName">
-                    <!--          DAY          -->
-                    <div ng-switch-default>
-                        <!-- day header -->
-                        <div class="col-sm-4">
-                            <h1 class="track-view-header">Day Tab</h1>
-                        </div>
-                        <!-- end of day header ->
+            <div class="switches">
+                <!--    nav-tabs        -->
+                <ul class="nav nav-pills">
+                    <li role="presentation" ng-class="{'active': tabName=='day'}"><a ng-click="tabName='day'; trackFoodDay(date)">Day</a></li>
+                    <li role="presentation" ng-class="{'active': tabName=='month'}"><a ng-click="tabName='month'">Month</a></li>
+                    <li role="presentation" ng-class="{'active': tabName=='year'}"><a ng-click="tabName='year'">Year</a></li>
+                </ul>
+                <!-- /nav-tabs -->
+                <div class="row well">
+                    <!-- content box -->
+                    <div class="content-box" ng-switch on="tabName">
+                        <!--          DAY          -->
+                        <div ng-switch-default>
+                            <!-- day header -->
+                            <div class="col-sm-4">
+                                <h1 class="track-view-header">Day Tab</h1>
+                            </div>
+                            <!-- end of day header ->
                         
                         <!-- day date input -->
-                        <div class="col-sm-8">
-                            <div class="row">
-                                <form class="date-input" novalidate>
-                                    <div class="col-xs-3">
-                                        <div class="form-group">
-                                            <label for="day">Day: </label>
-                                            <select class="form-control" name="day" ng-model="foodService.currentDate.day">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
-                                                <option value="13">13</option>
-                                                <option value="14">14</option>
-                                                <option value="15">15</option>
-                                                <option value="16">16</option>
-                                                <option value="17">17</option>
-                                                <option value="18">18</option>
-                                                <option value="19">19</option>
-                                                <option value="20">20</option>
-                                                <option value="21">21</option>
-                                                <option value="22">22</option>
-                                                <option value="23">23</option>
-                                                <option value="24">24</option>
-                                                <option value="25">25</option>
-                                                <option value="26">26</option>
-                                                <option value="27">27</option>
-                                                <option value="28">28</option>
-                                                <option value="29">29</option>
-                                                <option value="30">30</option>
-                                                <option value="31">31</option>
-                                            </select>
+                            <div class="col-sm-8">
+                                <div class="row">
+                                    <form class="date-input" novalidate>
+                                        <div class="col-xs-3">
+                                            <div class="form-group">
+                                                <label for="day">Day: </label>
+                                                <select class="form-control" name="day" ng-model="foodService.currentDate.day">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
+                                                    <option value="13">13</option>
+                                                    <option value="14">14</option>
+                                                    <option value="15">15</option>
+                                                    <option value="16">16</option>
+                                                    <option value="17">17</option>
+                                                    <option value="18">18</option>
+                                                    <option value="19">19</option>
+                                                    <option value="20">20</option>
+                                                    <option value="21">21</option>
+                                                    <option value="22">22</option>
+                                                    <option value="23">23</option>
+                                                    <option value="24">24</option>
+                                                    <option value="25">25</option>
+                                                    <option value="26">26</option>
+                                                    <option value="27">27</option>
+                                                    <option value="28">28</option>
+                                                    <option value="29">29</option>
+                                                    <option value="30">30</option>
+                                                    <option value="31">31</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xs-3">
-                                        <div class="form-group">
-                                            <label for="day">Month: </label>
-                                            <select class="form-control" name="month" ng-model="foodService.currentDate.month">
-                                                <option value="0">January</option>
-                                                <option value="1">February</option>
-                                                <option value="2">March</option>
-                                                <option value="3">April</option>
-                                                <option value="4">May</option>
-                                                <option value="5">June</option>
-                                                <option value="6">July</option>
-                                                <option value="7">August</option>
-                                                <option value="8">September</option>
-                                                <option value="9">October</option>
-                                                <option value="10">November</option>
-                                                <option value="11">December</option>
-                                            </select>
+                                        <div class="col-xs-3">
+                                            <div class="form-group">
+                                                <label for="day">Month: </label>
+                                                <select class="form-control" name="month" ng-model="foodService.currentDate.month">
+                                                    <option value="0">January</option>
+                                                    <option value="1">February</option>
+                                                    <option value="2">March</option>
+                                                    <option value="3">April</option>
+                                                    <option value="4">May</option>
+                                                    <option value="5">June</option>
+                                                    <option value="6">July</option>
+                                                    <option value="7">August</option>
+                                                    <option value="8">September</option>
+                                                    <option value="9">October</option>
+                                                    <option value="10">November</option>
+                                                    <option value="11">December</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="col-xs-3">
-                                        <div class="form-group">
-                                            <label for="day">Year: </label>
-                                            <select class="form-control" name="year" ng-model="foodService.currentDate.year">
-                                                <option value="2016">2016</option>
-                                                <option value="2015">2015</option>
-                                                <option value="2014">2014</option>
-                                            </select>
+                                        <div class="col-xs-3">
+                                            <div class="form-group">
+                                                <label for="day">Year: </label>
+                                                <select class="form-control" name="year" ng-model="foodService.currentDate.year">
+                                                    <option value="2016">2016</option>
+                                                    <option value="2015">2015</option>
+                                                    <option value="2014">2014</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xs-3">
-                                        <button class="btn btn-small" ng-click="checkDate()">Select</button>
-                                    </div>
+                                        <div class="col-xs-3">
+                                            <button class="btn btn-small" ng-click="checkDate()">Select</button>
+                                        </div>
 
-                                </form>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
-                        <!-- end of date input -->
+                            <!-- end of date input -->
 
-                        <!--  food list  -->
-                        <div class="col-xs-12">
-                            <button ng-click="click()">click</button>
-                            <br>
-                            <div class="list-group">
-                                <div ng-repeat="food in foodService.foodList track by $index">
-                                    <button type="button" class="list-group-item" ng-click="set($index)"><span class="food-name">{{ food.food_name }}</span><span ng-show="food.brand_name" class="brand-name">{{ food.brand_name }}</span><span class="calories">{{ food.calories }}</span><span class="cal-label">kCal</span></button>
-                                    <div class="nutrition-info" ng-show="i === $index">
-                                        <h3 class="nutrition">Nutrition Facts</h3>
-                                        <p class="serving">
-                                            <span class="nutrition-label">Serving Size: </span>
-                                            <span class="number">{{ food.number_of_units }} </span>
-                                            <span class="unit">{{ food.serving_description }} </span>
-                                            <span>({{ food.metric_serving_amount }}{{ food.metric_serving_unit }})</span>
-                                        </p>
-                                        <p class="servings">
-                                            <span class="nutrition-label">Servings: </span>
-                                            <span class="number">{{ food.servings }}</span>
-                                        </p>
-                                        <p class="calories">
-                                            <span class="nutrition-label">Calories: </span>
-                                            <span class="number">{{ food.calories * food.servings }}</span>
-                                            <span class="unit">kCal</span>
-                                        </p>
-                                        <p class="fat">
-                                            <span class="nutrition-label">Total Fat: </span>
-                                            <span class="number">{{ food.fat * food.servings }}</span>
-                                            <span class="unit">g</span>
-                                        </p>
-                                        <p class="cholesterol">
-                                            <span class="nutrition-label">Cholesterol: </span>
-                                            <span class="number">{{ food.cholesterol * food.servings }}</span>
-                                            <span class="unit">mg</span>
-                                        </p>
-                                        <p class="sodium">
-                                            <span class="nutrition-label">Sodium: </span>
-                                            <span class="number">{{ food.sodium * food.servings }}</span>
-                                            <span class="unit">mg</span>
-                                        </p>
-                                        <p class="carbs">
-                                            <span class="nutrition-label">Total Carbohydrate: </span>
-                                            <span class="number">{{ food.carbohydrate * food.servings }}</span>
-                                            <span class="unit">g</span>
-                                        </p>
-                                        <p class="protein">
-                                            <span class="nutrition-label">Protein: </span>
-                                            <span class="number">{{ food.protein * food.servings }}</span>
-                                            <span class="unit">g</span>
-                                        </p>
+                            <!--  food list  -->
+                            <div class="col-xs-12">
+                                <div class="list-group">
+                                    <div ng-repeat="food in foodService.foodList track by $index">
+                                        <button type="button" class="list-group-item" ng-click="set($index)"><span class="food-name">{{ food.food_name }}</span><span ng-show="food.brand_name" class="brand-name">{{ food.brand_name }}</span><span class="calories">{{ food.calories }}</span><span class="cal-label">kCal</span></button>
+                                        <div class="nutrition-info" ng-show="i === $index">
+                                            <h3 class="nutrition">Nutrition Facts</h3>
+                                            <p class="serving">
+                                                <span class="nutrition-label">Serving Size: </span>
+                                                <span class="number">{{ food.number_of_units }} </span>
+                                                <span class="unit">{{ food.serving_description }} </span>
+                                                <span>({{ food.metric_serving_amount }}{{ food.metric_serving_unit }})</span>
+                                            </p>
+                                            <p class="servings">
+                                                <span class="nutrition-label">Servings: </span>
+                                                <span class="number">{{ food.servings }}</span>
+                                            </p>
+                                            <p class="calories">
+                                                <span class="nutrition-label">Calories: </span>
+                                                <span class="number">{{ food.calories * food.servings }}</span>
+                                                <span class="unit">kCal</span>
+                                            </p>
+                                            <p class="fat">
+                                                <span class="nutrition-label">Total Fat: </span>
+                                                <span class="number">{{ food.fat * food.servings }}</span>
+                                                <span class="unit">g</span>
+                                            </p>
+                                            <p class="cholesterol">
+                                                <span class="nutrition-label">Cholesterol: </span>
+                                                <span class="number">{{ food.cholesterol * food.servings }}</span>
+                                                <span class="unit">mg</span>
+                                            </p>
+                                            <p class="sodium">
+                                                <span class="nutrition-label">Sodium: </span>
+                                                <span class="number">{{ food.sodium * food.servings }}</span>
+                                                <span class="unit">mg</span>
+                                            </p>
+                                            <p class="carbs">
+                                                <span class="nutrition-label">Total Carbohydrate: </span>
+                                                <span class="number">{{ food.carbohydrate * food.servings }}</span>
+                                                <span class="unit">g</span>
+                                            </p>
+                                            <p class="protein">
+                                                <span class="nutrition-label">Protein: </span>
+                                                <span class="number">{{ food.protein * food.servings }}</span>
+                                                <span class="unit">g</span>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <!--  end of food list  -->
                         </div>
-                        <!--  end of food list  -->
-                    </div>
-                    <!--          END DAY          -->
+                        <!--          END DAY          -->
 
-                    <!--          MONTH          -->
-                    <div ng-switch-when="month">
-                        <!-- month header -->
-                        <div class="col-sm-4">
-                            <h1 class="track-view-header">Month Tab</h1>
-                        </div>
-                        <!-- end of month header -->
-
-                        <!-- month date input -->
-                        <div class="col-sm-8">
-                            <div class="row">
-                                <form class="date-input" novalidate>
-                                    <div class="col-xs-3 col-xs-offset-3">
-                                        <div class="form-group">
-                                            <label for="day">Month: </label>
-                                            <select class="form-control" name="month" ng-model="foodService.currentDate.month">
-                                                <option value="1">January</option>
-                                                <option value="2">February</option>
-                                                <option value="3">March</option>
-                                                <option value="4">April</option>
-                                                <option value="5">May</option>
-                                                <option value="6">June</option>
-                                                <option value="7">July</option>
-                                                <option value="8">August</option>
-                                                <option value="9">September</option>
-                                                <option value="10">October</option>
-                                                <option value="11">November</option>
-                                                <option value="12">December</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-3">
-                                        <div class="form-group">
-                                            <label for="day">Year: </label>
-                                            <select class="form-control" name="year" ng-model="foodService.currentDate.year">
-                                                <option value="2016">2016</option>
-                                                <option value="2015">2015</option>
-                                                <option value="2014">2014</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-3">
-                                        <button class="btn btn-small" ng-click="checkDate()">Select</button>
-                                    </div>
-                                </form>
+                        <!--          MONTH          -->
+                        <div ng-switch-when="month">
+                            <!-- month header -->
+                            <div class="col-sm-4">
+                                <h1 class="track-view-header">Month Tab</h1>
                             </div>
-                        </div>
-                        <!-- end of date input -->
+                            <!-- end of month header -->
 
-                        <!--  food list  -->
-                        <div class="col-xs-12">
-                            <div class="list-group">
-                                <button type="button" class="list-group-item" ng-click="set($index)" ng-repeat="food in foodService.foodList track by $index"><span class="food-name">{{ food.food_name }}</span><span ng-show="food.brand_name" class="brand-name">{{ food.brand_name }}</span><span class="calories">{{ food.calories }}</span><span class="cal-label">kCal</span></button>
-                                <div class="nutrition-info" ng-show="i === $index">
-                                    <h3 class="nutrition">Nutrition Facts</h3>
-                                    <p class="serving">
-                                        <span class="nutrition-label">Serving Size: </span>
-                                        <span class="number">{{ food.number_of_units }} </span>
-                                        <span class="unit">{{ food.serving_description }} </span>
-                                        <span>({{ food.metric_serving_amount }}{{ food.metric_serving_unit }})</span>
-                                    </p>
-                                    <p class="servings">
-                                        <span class="nutrition-label">Servings: </span>
-                                        <span class="number">{{ food.servings }}</span>
-                                    </p>
-                                    <p class="calories">
-                                        <span class="nutrition-label">Calories: </span>
-                                        <span class="number">{{ food.calories * food.servings }}</span>
-                                        <span class="unit">kCal</span>
-                                    </p>
-                                    <p class="fat">
-                                        <span class="nutrition-label">Total Fat: </span>
-                                        <span class="number">{{ food.fat * food.servings }}</span>
-                                        <span class="unit">g</span>
-                                    </p>
-                                    <p class="cholesterol">
-                                        <span class="nutrition-label">Cholesterol: </span>
-                                        <span class="number">{{ food.cholesterol * food.servings }}</span>
-                                        <span class="unit">mg</span>
-                                    </p>
-                                    <p class="sodium">
-                                        <span class="nutrition-label">Sodium: </span>
-                                        <span class="number">{{ food.sodium * food.servings }}</span>
-                                        <span class="unit">mg</span>
-                                    </p>
-                                    <p class="carbs">
-                                        <span class="nutrition-label">Total Carbohydrate: </span>
-                                        <span class="number">{{ food.carbohydrate * food.servings }}</span>
-                                        <span class="unit">g</span>
-                                    </p>
-                                    <p class="protein">
-                                        <span class="nutrition-label">Protein: </span>
-                                        <span class="number">{{ food.protein * food.servings }}</span>
-                                        <span class="unit">g</span>
-                                    </p>
+                            <!-- month date input -->
+                            <div class="col-sm-8">
+                                <div class="row">
+                                    <form class="date-input" novalidate>
+                                        <div class="col-xs-3 col-xs-offset-3">
+                                            <div class="form-group">
+                                                <label for="day">Month: </label>
+                                                <select class="form-control" name="month" ng-model="foodService.currentDate.month">
+                                                    <option value="1">January</option>
+                                                    <option value="2">February</option>
+                                                    <option value="3">March</option>
+                                                    <option value="4">April</option>
+                                                    <option value="5">May</option>
+                                                    <option value="6">June</option>
+                                                    <option value="7">July</option>
+                                                    <option value="8">August</option>
+                                                    <option value="9">September</option>
+                                                    <option value="10">October</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">December</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-3">
+                                            <div class="form-group">
+                                                <label for="day">Year: </label>
+                                                <select class="form-control" name="year" ng-model="foodService.currentDate.year">
+                                                    <option value="2016">2016</option>
+                                                    <option value="2015">2015</option>
+                                                    <option value="2014">2014</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <button class="btn btn-small" ng-click="checkDate()">Select</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-                        </div>
-                        <!--  end of food list  -->
-                    </div>
-                    <!--          END MONTH          -->
+                            <!-- end of date input -->
 
-                    <!--          YEAR          -->
-                    <div ng-switch-when="year">
-                        <!-- year header -->
-                        <div class="col-sm-4">
-                            <h1 class="track-view-header">Day Tab</h1>
-                        </div>
-                        <!-- end of year header -->
-
-                        <!-- year date input -->
-                        <div class="col-sm-8">
-                            <div class="row">
-                                <form class="date-input" novalidate>
-                                    <div class="col-xs-3 col-xs-offset-6">
-                                        <div class="form-group">
-                                            <label for="day">Year: </label>
-                                            <select class="form-control" name="year" ng-model="foodService.currentDate.year">
-                                                <option value="2016">2016</option>
-                                                <option value="2015">2015</option>
-                                                <option value="2014">2014</option>
-                                            </select>
+                            <!--  food list  -->
+                            <div class="col-xs-12">
+                                <div class="list-group">
+                                    <div ng-repeat="food in foodService.foodList track by $index">
+                                        <button type="button" class="list-group-item" ng-click="set($index)"><span class="food-name">{{ food.food_name }}</span><span ng-show="food.brand_name" class="brand-name">{{ food.brand_name }}</span><span class="calories">{{ food.calories }}</span><span class="cal-label">kCal</span></button>
+                                        <div class="nutrition-info" ng-show="i === $index">
+                                            <h3 class="nutrition">Nutrition Facts</h3>
+                                            <p class="serving">
+                                                <span class="nutrition-label">Serving Size: </span>
+                                                <span class="number">{{ food.number_of_units }} </span>
+                                                <span class="unit">{{ food.serving_description }} </span>
+                                                <span>({{ food.metric_serving_amount }}{{ food.metric_serving_unit }})</span>
+                                            </p>
+                                            <p class="servings">
+                                                <span class="nutrition-label">Servings: </span>
+                                                <span class="number">{{ food.servings }}</span>
+                                            </p>
+                                            <p class="calories">
+                                                <span class="nutrition-label">Calories: </span>
+                                                <span class="number">{{ food.calories * food.servings }}</span>
+                                                <span class="unit">kCal</span>
+                                            </p>
+                                            <p class="fat">
+                                                <span class="nutrition-label">Total Fat: </span>
+                                                <span class="number">{{ food.fat * food.servings }}</span>
+                                                <span class="unit">g</span>
+                                            </p>
+                                            <p class="cholesterol">
+                                                <span class="nutrition-label">Cholesterol: </span>
+                                                <span class="number">{{ food.cholesterol * food.servings }}</span>
+                                                <span class="unit">mg</span>
+                                            </p>
+                                            <p class="sodium">
+                                                <span class="nutrition-label">Sodium: </span>
+                                                <span class="number">{{ food.sodium * food.servings }}</span>
+                                                <span class="unit">mg</span>
+                                            </p>
+                                            <p class="carbs">
+                                                <span class="nutrition-label">Total Carbohydrate: </span>
+                                                <span class="number">{{ food.carbohydrate * food.servings }}</span>
+                                                <span class="unit">g</span>
+                                            </p>
+                                            <p class="protein">
+                                                <span class="nutrition-label">Protein: </span>
+                                                <span class="number">{{ food.protein * food.servings }}</span>
+                                                <span class="unit">g</span>
+                                            </p>
                                         </div>
                                     </div>
-                                    <div class="col-xs-3">
-                                        <button class="btn btn-small" ng-click="checkDate()">Select</button>
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
-                        <!-- end of date input -->
-
-                        <!--  food list  -->
-                        <div class="col-xs-12">
-                            <div class="list-group">
-                                <button type="button" class="list-group-item" ng-click="set($index)" ng-repeat="food in foodService.foodList track by $index"><span class="food-name">{{ food.food_name }}</span><span ng-show="food.brand_name" class="brand-name">{{ food.brand_name }}</span><span class="calories">{{ food.calories }}</span><span class="cal-label">kCal</span></button>
-                                <div class="nutrition-info" ng-show="i === $index">
-                                    <h3 class="nutrition">Nutrition Facts</h3>
-                                    <p class="serving">
-                                        <span class="nutrition-label">Serving Size: </span>
-                                        <span class="number">{{ food.number_of_units }} </span>
-                                        <span class="unit">{{ food.serving_description }} </span>
-                                        <span>({{ food.metric_serving_amount }}{{ food.metric_serving_unit }})</span>
-                                    </p>
-                                    <p class="servings">
-                                        <span class="nutrition-label">Servings: </span>
-                                        <span class="number">{{ food.servings }}</span>
-                                    </p>
-                                    <p class="calories">
-                                        <span class="nutrition-label">Calories: </span>
-                                        <span class="number">{{ food.calories * food.servings }}</span>
-                                        <span class="unit">kCal</span>
-                                    </p>
-                                    <p class="fat">
-                                        <span class="nutrition-label">Total Fat: </span>
-                                        <span class="number">{{ food.fat * food.servings }}</span>
-                                        <span class="unit">g</span>
-                                    </p>
-                                    <p class="cholesterol">
-                                        <span class="nutrition-label">Cholesterol: </span>
-                                        <span class="number">{{ food.cholesterol * food.servings }}</span>
-                                        <span class="unit">mg</span>
-                                    </p>
-                                    <p class="sodium">
-                                        <span class="nutrition-label">Sodium: </span>
-                                        <span class="number">{{ food.sodium * food.servings }}</span>
-                                        <span class="unit">mg</span>
-                                    </p>
-                                    <p class="carbs">
-                                        <span class="nutrition-label">Total Carbohydrate: </span>
-                                        <span class="number">{{ food.carbohydrate * food.servings }}</span>
-                                        <span class="unit">g</span>
-                                    </p>
-                                    <p class="protein">
-                                        <span class="nutrition-label">Protein: </span>
-                                        <span class="number">{{ food.protein * food.servings }}</span>
-                                        <span class="unit">g</span>
-                                    </p>
                                 </div>
                             </div>
+                            <!--  end of food list  -->
                         </div>
-                        <!--  end of food list  -->
-                    </div>
-                    <!--      END YEAR        -->
+                        <!--          END MONTH          -->
 
+                        <!--          YEAR          -->
+                        <div ng-switch-when="year">
+                            <!-- year header -->
+                            <div class="col-sm-4">
+                                <h1 class="track-view-header">Year Tab</h1>
+                            </div>
+                            <!-- end of year header -->
+
+                            <!-- year date input -->
+                            <div class="col-sm-8">
+                                <div class="row">
+                                    <form class="date-input" novalidate>
+                                        <div class="col-xs-3 col-xs-offset-6">
+                                            <div class="form-group">
+                                                <label for="day">Year: </label>
+                                                <select class="form-control" name="year" ng-model="foodService.currentDate.year">
+                                                    <option value="2016">2016</option>
+                                                    <option value="2015">2015</option>
+                                                    <option value="2014">2014</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <button class="btn btn-small" ng-click="checkDate()">Select</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- end of date input -->
+
+                            <!--  food list  -->
+                            <div class="col-xs-12">
+                                <div class="list-group">
+                                    <div ng-repeat="food in foodService.foodList track by $index">
+                                        <button type="button" class="list-group-item" ng-click="set($index)"><span class="food-name">{{ food.food_name }}</span><span ng-show="food.brand_name" class="brand-name">{{ food.brand_name }}</span><span class="calories">{{ food.calories }}</span><span class="cal-label">kCal</span></button>
+                                        <div class="nutrition-info" ng-show="i === $index">
+                                            <h3 class="nutrition">Nutrition Facts</h3>
+                                            <p class="serving">
+                                                <span class="nutrition-label">Serving Size: </span>
+                                                <span class="number">{{ food.number_of_units }} </span>
+                                                <span class="unit">{{ food.serving_description }} </span>
+                                                <span>({{ food.metric_serving_amount }}{{ food.metric_serving_unit }})</span>
+                                            </p>
+                                            <p class="servings">
+                                                <span class="nutrition-label">Servings: </span>
+                                                <span class="number">{{ food.servings }}</span>
+                                            </p>
+                                            <p class="calories">
+                                                <span class="nutrition-label">Calories: </span>
+                                                <span class="number">{{ food.calories * food.servings }}</span>
+                                                <span class="unit">kCal</span>
+                                            </p>
+                                            <p class="fat">
+                                                <span class="nutrition-label">Total Fat: </span>
+                                                <span class="number">{{ food.fat * food.servings }}</span>
+                                                <span class="unit">g</span>
+                                            </p>
+                                            <p class="cholesterol">
+                                                <span class="nutrition-label">Cholesterol: </span>
+                                                <span class="number">{{ food.cholesterol * food.servings }}</span>
+                                                <span class="unit">mg</span>
+                                            </p>
+                                            <p class="sodium">
+                                                <span class="nutrition-label">Sodium: </span>
+                                                <span class="number">{{ food.sodium * food.servings }}</span>
+                                                <span class="unit">mg</span>
+                                            </p>
+                                            <p class="carbs">
+                                                <span class="nutrition-label">Total Carbohydrate: </span>
+                                                <span class="number">{{ food.carbohydrate * food.servings }}</span>
+                                                <span class="unit">g</span>
+                                            </p>
+                                            <p class="protein">
+                                                <span class="nutrition-label">Protein: </span>
+                                                <span class="number">{{ food.protein * food.servings }}</span>
+                                                <span class="unit">g</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--  end of food list  -->
+                        </div>
+                        <!--      END YEAR        -->
+
+                    </div>
+                    <!--end of content box-->
                 </div>
-                <!--end of content box-->
+
             </div>
 
+            <!--  /////////End OF NG SWITCHES/////////  -->
         </div>
 
-        <!--  /////////End OF NG SWITCHES/////////  -->
+
+
+
+
+
+
     </div>
-
-
-
-
-
-
-
-</div>
 </div>
 
 <!--    end of page-->
