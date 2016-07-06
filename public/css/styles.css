@@ -1,8 +1,6 @@
-body {
-    
-}
+body {}
 
-.goals{
+.goals {
     height: 85px;
     border: 1px solid black;
     margin-bottom: 10px;
@@ -17,3 +15,46 @@ body {
 h1.track-view-header {
     display: inline;
 }
+
+/*Search input --> add html*/
+.pointer:hover {
+    cursor: pointer; 
+}
+
+.inner-addon {
+    position: relative;
+}
+
+.inner-addon .glyphicon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+}
+
+.left-addon .glyphicon {
+    left: 0px;
+}
+
+.right-addon .glyphicon {
+    right: -30px;
+}
+
+.right-addon:hover {
+    cursor: pointer;
+}
+
+.right-addon input {
+    padding-right: 30px;
+}
+/*------------------------*/
+
+/*styling for profile page*/
+.titles {
+    text-decoration: underline; 
+}
+
+.labels {
+    color: #337AB7; 
+}
+
+/*------------------------*/

@@ -3,7 +3,8 @@
         <div class="jumbotron">
             <h1 class="text-center">Welcome To The Calorie Counter</h1>
             <br>
-            <p class="text-center">To start tracking your calories please <a href="#/login"><i>login</i></a> or <a href="#/signup"><i>signup</i></i></a> for a new account!</p>
+            <p class="text-center" ng-hide="userService.isAuthenticated()">To start tracking your calories please <a href="#/login"><i>login</i></a> or <a href="#/signup"><i>signup</i></i></a> for a new account!</p>
+            <p class="text-center" ng-show="userService.isAuthenticated()">To start tracking your calories head on over to your <a href="#/track"><i>tracker</i></a> or <a href="#/add"><i>add</i></i></a> an item!</p>
         </div>
     </div>
 </div>

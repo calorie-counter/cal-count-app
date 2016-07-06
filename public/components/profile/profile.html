@@ -1,111 +1,108 @@
 <div class="profile container">
     <!--   maybe make them clickable?  -->
     <div class="row userProfile">
-        <div class="col-md-6 col-md-offset-3">
-            <h2>Account Details</h2>
-            <form class="well" novalidate>
-                <div class="form-group">
-                    <a class="pull-right" ng-hide="editing" title="Edit" ng-click="editing = true"><span class="glyphicon glyphicon-pencil"></span></a>
-
-                    <div class="row">
-                        <div class="col-md-6 control-group">
-                            <label for="name">Name:</label>
-                            <div class="edit" ng-show="editing">
-                                <input class="form-control" ng-show="editing" ng-model="UserService.currentUser.name">
-                            </div>
-                            <div class="view" ng-hide="editing">
-                                <h4>{{ UserService.currentUser.name }}</h4>
-                            </div>
-                        </div>
-                        <div class="col-md-6 control-group">
-                            <!--                           USER -->
-                            <label for="user">Username:</label>
-                            <div class="edit" ng-show="editing">
-                                <input class="form-control" ng-show="editing" ng-model="UserService.currentUser.username" ng-hide="!user.editing" ng-show="user.editing">
-                            </div>
-                            <div class="view" ng-hide="editing">
-                                <h4>{{ UserService.currentUser.username }}</h4>
-                            </div>
-                        </div>
-                        <div class="col-md-6 control-group">
-                            <label for="email">Email:</label>
-                            <div class="edit" ng-show="editing">
-                                <input class="form-control" ng-show="editing" ng-model="UserService.currentUser.email" ng-hide="!email.editing" ng-show="email.editing">
-                            </div>
-                            <div class="view" ng-hide="editing">
-                                <h4>{{ UserService.currentUser.email }}</h4>
-                            </div>
-
-                        </div>
-                    </div>
+        <form class="well container" novalidate>
+            <a class="pull-right" ng-hide="editing" title="Edit" ng-click="editing = true"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="pull-right" ng-show="editing" title="Save" ng-click="UserService.edit(UserService.CurrentUser); editing = !editing"><span class="glyphicon glyphicon-floppy-disk"></span></a>
+            <h2 class="text-center titles">Account Details</h2>
+            <br>
+            <div class="col-md-8 col-md-offset-2 form-group">
+                <label class="labels" for="name">Name:</label>
+                <div class="edit" ng-show="editing">
+                    <input class="form-control" ng-show="editing" ng-model="UserService.currentUser.name">
                 </div>
-                <button class="btn btn-lrg btn-primary center-block" ng-show="editing" ng-click="UserService.edit(UserService.CurrentUser); editing = !editing"><span class="glyphicon glyphicon-floppy-disk"></span></button>
-            </form>
-        </div>
+                <div class="view" ng-hide="editing">
+                    <h4>{{ UserService.currentUser.name }}</h4>
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2 form-group">
+                <!--                           USER -->
+                <label class="labels" for="user">Username:</label>
+                <div class="edit" ng-show="editing">
+                    <input class="form-control" ng-show="editing" ng-model="UserService.currentUser.username" ng-hide="!user.editing" ng-show="user.editing">
+                </div>
+                <div class="view" ng-hide="editing">
+                    <h4>{{ UserService.currentUser.username }}</h4>
+                </div>
+            </div>
+
+            <div class="col-md-8 col-md-offset-2 form-group">
+                <label class="labels" for="email">Email:</label>
+                <div class="edit" ng-show="editing">
+                    <input class="form-control" ng-show="editing" ng-model="UserService.currentUser.email" ng-hide="!email.editing" ng-show="email.editing">
+                </div>
+                <div class="view" ng-hide="editing">
+                    <h4>{{ UserService.currentUser.email }}</h4>
+                </div>
+            </div>
+
+        </form>
     </div>
     <!--    find a way to divide?-->
     <div class="row userData">
-        <div class="col-md-6 col-md-offset-3">
-
-
-            <form class="well" novalidate>
-                <h2 class="text-center">User Data</h2>
-                <a class="pull-right" ng-hide="dataEditing" title="Edit" ng-click="dataEditing = true"><span class="glyphicon glyphicon-pencil"></span></a>
-
-                <div class="form-group">
-                    <label for="age">Age:</label>
-                    <div class="edit" ng-show="dataEditing">
-                        <input type="number" class="form-control" ng-model="UserService.currentUser.age" ng-show="dataEditing">
-                    </div>
-                    <br>
-                    <div class="view" ng-hide="dataEditing">
-                        <h4>{{ UserService.currentUser.age }}</h4>
-
-                    </div>
-
-                    <label for="height">Height:</label>
-                    <div class="edit input-group" ng-show="dataEditing">
-                        <input type="number" class="form-control" ng-model="UserService.currentUser.height" ng-show="dataEditing">
-                        <span class="input-group-addon">in.</span>
-                    </div>
-                    <div class="view" ng-hide="dataEditing">
-                        <h4>{{ UserService.currentUser.height }} in.</h4>
-                    </div>
-
-                    <label for="weight">Weight:</label>
-                    <div class="edit input-group" ng-show="dataEditing">
-                        <input type="number" class="form-control" ng-model="UserService.currentUser.weight" ng-show="dataEditing">
-                        <span class="input-group-addon">lbs.</span>
-                    </div>
-                    <div class="view" ng-hide="dataEditing">
-                        <h4>{{ UserService.currentUser.weight }} lbs.</h4>
-                    </div>
-
-                    <label for="gender">Gender:</label>
-                    <div class="edit input-group" ng-show="dataEditing">
-                        <label>
-                            <input class="radio-inline form-control" type="radio" ng-model="UserService.currentUser.gender" ng-show="dataEditing" value="Male">Male</label>
-                        <label>
-                            <input class="radio-inline form-control" type="radio" ng-model="UserService.currentUser.gender" ng-show="dataEditing" value="Female">Female</label>
-                    </div>
-                    <div class="view" ng-hide="dataEditing">
-                        <h4>{{ UserService.currentUser.gender }}</h4>
-                    </div>
-
-                    <label for="goal">Goal:</label>
-                    <div class="edit input-group" ng-show="dataEditing">
-                        <input type="number" class="form-control" ng-model="UserService.currentUser.goal" ng-show="dataEditing">
-                        <span class="input-group-addon">kCal</span>
-                    </div>
-                    <div class="view" ng-hide="dataEditing">
-                        <h4>{{ UserService.currentUser.goal }} kCal</h4>
-                    </div>
-
+        <form class="well container" novalidate>
+            <a class="pull-right" ng-hide="dataEditing" title="Edit" ng-click="dataEditing = true"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="pull-right" ng-show="dataEditing" title="Save" ng-click="UserService.edit(UserService.currentUser); dataEditing = !dataEditing"><span class="glyphicon glyphicon-floppy-disk"></span></a>
+            <h2 class="text-center titles">User Data</h2>
+            <br>
+            <div class="col-md-8 col-md-offset-2 form-group">
+                <label class="labels" for="age">Age:</label>
+                <div class="edit" ng-show="dataEditing">
+                    <input type="number" class="form-control" ng-model="UserService.currentUser.age" ng-show="dataEditing">
                 </div>
+                <div class="view" ng-hide="dataEditing">
+                    <h4>{{ UserService.currentUser.age }}</h4>
+                </div>
+            </div>
 
-                <button class="btn btn-lrg btn-primary center-block" ng-show="dataEditing" ng-click="UserService.edit(UserService.currentUser); dataEditing = !dataEditing"><span class="glyphicon glyphicon-floppy-disk"></span></button>
-            </form>
+            <div class="col-md-8 col-md-offset-2 form-group">
+                <label class="labels" for="height">Height:</label>
+                <div class="edit input-group" ng-show="dataEditing">
+                    <input type="number" class="form-control" ng-model="UserService.currentUser.height" ng-show="dataEditing">
+                    <span class="input-group-addon">in.</span>
+                </div>
+                <div class="view" ng-hide="dataEditing">
+                    <h4>{{ UserService.currentUser.height }} in.</h4>
+                </div>
+            </div>
 
-        </div>
+            <div class="col-md-8 col-md-offset-2 form-group">
+                <label class="labels" for="weight">Weight:</label>
+                <div class="edit input-group" ng-show="dataEditing">
+                    <input type="number" class="form-control" ng-model="UserService.currentUser.weight" ng-show="dataEditing">
+                    <span class="input-group-addon">lbs.</span>
+                </div>
+                <div class="view" ng-hide="dataEditing">
+                    <h4>{{ UserService.currentUser.weight }} lbs.</h4>
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2 form-group">
+                <label class="labels" for="gender">Gender:</label>
+                <div class="edit input-group" ng-show="dataEditing">
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-default active">
+                            <input type="radio" name="options" id="option1" autocomplete="off" ng-model="UserService.currentUser.gender" ng-show="dataEditing" value="Male" checked> Male
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="radio" name="options" id="option2" autocomplete="off" ng-model="UserService.currentUser.gender" ng-show="dataEditing" value="Female"> Female
+                        </label>
+                    </div>
+                </div>
+                <div class="view" ng-hide="dataEditing">
+                    <h4>{{ UserService.currentUser.gender }}</h4>
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2 form-group">
+                <label class="labels" for="goal">Goal:</label>
+                <div class="edit input-group" ng-show="dataEditing">
+                    <input type="number" class="form-control" ng-model="UserService.currentUser.goal" ng-show="dataEditing">
+                    <span class="input-group-addon">kCal</span>
+                </div>
+                <div class="view" ng-hide="dataEditing">
+                    <h4>{{ UserService.currentUser.goal }} kCal.</h4>
+                </div>
+            </div>
+        </form>
     </div>
+</div>
 </div>

@@ -1,12 +1,14 @@
 <div class="add container">
     <div class="row">
-        <div class="col-xs-12">
-            <div class="input-group center-block">
-                <input type="text" name="search" id="search" ng-model="searchTerm" placeholder="Search foods...">
-                <button class="btn-btn-default input-group-addon" ng-click="FatService.fatSearch(searchTerm)"><span class="glyphicon glyphicon-search"></span></button>
+        <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+            <div class="input-group">
+                <input type="text" class="form-control" name="search" id="search" ng-model="searchTerm" placeholder="Search foods...">
+                <span class="input-group-addon" ng-click="FatService.fatSearch(searchTerm)"><i class="glyphicon glyphicon-search pointer"></i></span> 
             </div>
         </div>
     </div>
+    <br>
+
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 well">
             <div ng-switch="addView">
@@ -63,7 +65,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="imput-group">
-                               <label for="servings">Number of Servings:</label>
+                                <label for="servings">Number of Servings:</label>
                                 <select name="servings" ng-model="FatService.currentFood.servings">
                                     <option value="1">1 Serving</option>
                                     <option value="1.5">1.5 Servings</option>
