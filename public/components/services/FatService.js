@@ -48,7 +48,7 @@ app.service("FatService", ["$http", function ($http) {
         
     
         //adding jsonp did not work
-        return $http.({
+        return $http({
             method: httpMethod,
             url: requestUrl,
             params: params
