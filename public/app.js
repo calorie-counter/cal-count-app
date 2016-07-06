@@ -8,17 +8,36 @@ app.config(function ($routeProvider) {
         })
         .when("/add", {
             templateUrl: "components/add/add.html",
-            controller: "AddController"
+            controller: "AddController",
+            resolve: {
+                factory: loggedIn
+            }
         })
         .when("/profile", {
             templateUrl: "components/profile/profile.html",
-            controller: "ProfileController"
+            controller: "ProfileController",
+            resolve: {
+                factory: loggedIn
+            }
         })
         .when("/track", {
             templateUrl: "components/track/track.html",
-            controller: "TrackController"
+            controller: "TrackController",
+            resolve: {
+                factory: loggedIn
+            }
         })  
         .otherwise({
             redirectTo: "/"
         });
 });
+
+var loggedIn = function ($q, $location, UserService) {
+    var defer = $q.defer();
+    if (UserService.isAuthenticated()) {
+        defer.resolve(true);
+    } else {
+        defer.reject("not logged in")
+        $location.path("/login")
+    }
+}
