@@ -4,6 +4,7 @@ var app = angular.module("CalorieApp");
 app.controller("TrackController", ["$scope", "FoodService", function ($scope, FoodService) {
     //getfood function
     $scope.foodService = FoodService;
+    $scope.tabName = "day";
     /*
     for the day:    getDate() [also returns from 0-6]
     for the month:  getMonth() [REMEBER: returns a number from 0-11]

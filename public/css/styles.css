@@ -13,3 +13,7 @@ body {
 }
 
 .list-tabs
+
+h1.track-view-header {
+    display: inline;
+}
