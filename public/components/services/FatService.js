@@ -37,7 +37,7 @@ app.service("FatService", ["$http", function ($http) {
         var sigBaseString = httpMethod + "&" + encodeURIComponent(requestUrl) + "&" + encodeURIComponent(concatParams);
         
         var hash = CryptoJS.HmacSHA1(sigBaseString, sharedSecret);
-        
+        console.log("hi")
         console.log(hash);
         
         var base64 = CryptoJS.enc.Base64.stringify(hash);
@@ -46,7 +46,9 @@ app.service("FatService", ["$http", function ($http) {
         
         console.log(params.oauth_signature);
         
-        return $http({
+    
+        //adding jsonp did not work
+        return $http.({
             method: httpMethod,
             url: requestUrl,
             params: params
@@ -60,6 +62,7 @@ app.service("FatService", ["$http", function ($http) {
         sigBase.max_results = 50;
         sigBase.method = "foods.search";
         sigBase.oauth_timestamp = Math.floor(date.getTime() / 1000);
+        console.log("timestamp: " + sigBase.oauth_timestamp);
         sigBase.oauth_nonce = nonce + n;
         sigBase.search_expression = searchTerm;
         n++;
