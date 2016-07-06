@@ -1,14 +1,14 @@
 <div class="add container">
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-            <div>    
-                <input type="search" class="form-control" placeholder="Search foods...">
-                <span title="Search"><a href="" class="pull-right" ng-click="FatService.fatSearch(searchTerm)"><i class="glyphicon glyphicon-search"></i></a></span>
+            <div class="input-group">
+                <input type="text" class="form-control" name="search" id="search" ng-model="searchTerm" placeholder="Search foods...">
+                <span class="input-group-addon" ng-click="FatService.fatSearch(searchTerm)"><i class="glyphicon glyphicon-search pointer"></i></span> 
             </div>
         </div>
     </div>
     <br>
-    
+
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 well">
             <div ng-switch="addView">
