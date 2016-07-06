@@ -5,6 +5,7 @@ app.controller("TrackController", ["$scope", "FoodService", function ($scope, Fo
     //getfood function
     $scope.foodService = FoodService;
     $scope.tabName = "day";
+    $scope.i = -1;
     /*
     for the day:    getDate() [also returns from 0-6]
     for the month:  getMonth() [REMEBER: returns a number from 0-11]
@@ -26,12 +27,17 @@ app.controller("TrackController", ["$scope", "FoodService", function ($scope, Fo
     //     
 
 
-    /*calendar functions*/
-    $scope.open1 = function () {
-        console.log("Hi")
+    $scope.checkDate = function () {
+        $scope.foodService.getFoods($scope.tabName);
+    }
+    $scope.set = function (index) {
+       $scope.i = index;
+       console.log($scope.i);
+        console.log(index);
+    }
+    $scope.click = function () {
+        console.log($scope.foodService.currentDate);
         
-    };
-    
-    
+    }
     
 }]);
