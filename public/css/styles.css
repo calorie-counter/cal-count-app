@@ -12,6 +12,9 @@ body {}
 
 
 /*Search input --> add html*/
+.pointer:hover {
+    cursor: pointer; 
+}
 
 .inner-addon {
     position: relative;
@@ -28,11 +31,11 @@ body {}
 }
 
 .right-addon .glyphicon {
-    right: 0px;
+    right: -30px;
 }
 
-.left-addon input {
-    padding-left: 30px;
+.right-addon:hover {
+    cursor: pointer;
 }
 
 .right-addon input {
