@@ -44,10 +44,9 @@ app.service("FatService", ["$http", function ($http) {
         
         var base64 = CryptoJS.enc.Base64.stringify(hash);
         
-        params.oauth_signature = base64;
-        
-        console.log(params.oauth_signature);
-        
+        params.oauth_signature = encodeURIComponent(base64);
+
+        console.log("oauth_signature: " + params.oauth_signature);
     
         //adding jsonp did not work
         return $http({
