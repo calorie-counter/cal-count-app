@@ -1,8 +1,6 @@
-body {
-    
-}
+body {}
 
-.goals{
+.goals {
     height: 85px;
     border: 1px solid black;
     margin-bottom: 10px;
@@ -12,4 +10,32 @@ body {
     list-style-type: none;
 }
 
-.list-tabs
+
+/*Search input --> add html*/
+
+.inner-addon {
+    position: relative;
+}
+
+.inner-addon .glyphicon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+}
+
+.left-addon .glyphicon {
+    left: 0px;
+}
+
+.right-addon .glyphicon {
+    right: 0px;
+}
+
+.left-addon input {
+    padding-left: 30px;
+}
+
+.right-addon input {
+    padding-right: 30px;
+}
+/*------------------------*/
