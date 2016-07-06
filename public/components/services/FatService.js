@@ -6,11 +6,12 @@ app.service("FatService", ["$http", function ($http) {
     this.currentFood = {};
     var n = 0;
     var nonce = Math.random().toString(36).replace(/[^a-z]/, '').substr(2);
-    var date = new Date;
+    var date = new Date();
+//    console.log(date)
     var requestUrl = "http://platform.fatsecret.com/rest/server.api";
     var sharedSecret = "c779145a3cc84bbc8820e336def62a37&"
     var sigBase = {
-//        format: "json",
+        format: "json",
         oauth_consumer_key: "40a95beb5d134a4aa81ec584486a23d9",
         oauth_signature_method: "HMAC-SHA1",
         oauth_version: 1.0,
@@ -37,7 +38,8 @@ app.service("FatService", ["$http", function ($http) {
         var sigBaseString = httpMethod + "&" + encodeURIComponent(requestUrl) + "&" + encodeURIComponent(concatParams);
         
         var hash = CryptoJS.HmacSHA1(sigBaseString, sharedSecret);
-        console.log("hi")
+        console.log(sigBaseString)
+//        console.log("hi")
         console.log(hash);
         
         var base64 = CryptoJS.enc.Base64.stringify(hash);
@@ -69,7 +71,7 @@ app.service("FatService", ["$http", function ($http) {
         fatsecretGet(sigBase).then(function(data) {
             console.log(data);
             self.searchResults = data.foods;
-        })
+        });
     };
 
     this.getFood = function (id) {
