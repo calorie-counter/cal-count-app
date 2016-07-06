@@ -50,6 +50,6 @@ var notLoggedIn = function($q, $location, UserService) {
         defer.resolve(true);
     } else {
         defer.reject("logged in")
-        $location.path("/home")
+        $location.path("/")
     }
 }
