@@ -69,8 +69,8 @@ fatRouter.post("/search", function (req, res) {
     rest.post(fatSecretRestUrl, {
         data: sign(searchReqObj, req.body.search_expression)
     }).on('complete', function (data, response) {
-        console.log(response);
-        console.log("DATA: " + data + "\n");
+//        console.log(response);
+//        console.log("DATA: " + data + "\n");
         parseString(data, function(err, result) {
             if (err) {
                 res.status(500).send(err);
@@ -87,8 +87,8 @@ fatRouter.post("/get", function (req, res) {
         data: sign(getReqObj, req.body.food_id)
     }).on('complete', function (data, response) {
 //        console.log(response);
-//        console.log("DATA: " + data + "\n");
-        parseString(response, function(err, result) {
+        console.log("DATA: " + data + "\n");
+        parseString(data, function(err, result) {
             if (err) {
                 res.status(500).send(err);
                 console.log(err);
