@@ -6,7 +6,7 @@ app.service("FatService", ["$http", function ($http) {
     this.currentFood = {};
     
     this.fatSearch = function (searchTerm) {
-        $http.post("/api/fatsecret/search", searchTerm).then(function(res) {
+        $http.post("/api/fatsecret/search", {search_expression: searchTerm}).then(function(res) {
             console.log(res);
             console.log(res.data);
             console.log(res.response);
@@ -15,7 +15,7 @@ app.service("FatService", ["$http", function ($http) {
     };
 
     this.getFood = function (id) {
-        $http.post("/api/fatsecret/get", id).then(function(res) {
+        $http.post("/api/fatsecret/get", {food_id: id}).then(function(res) {
             console.log(res);
             console.log(res.data);
             console.log(res.response);
