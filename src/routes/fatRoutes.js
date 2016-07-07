@@ -32,14 +32,14 @@ var getReqObj = {
 
 function sign(reqObj, item) {
     // add dynamic search_expression and food_id values
-    if (reqObj.method === 'foods.search') {
-        reqObj.search_expression = item;
-        console.log("hello")
-    } else if (reqObj.method === 'foods.get') reqObj.food_id = item;
+    if (reqObj.method === 'foods.search') reqObj.search_expression = item;
+    else if (reqObj.method === 'foods.get') reqObj.food_id = item;
     
     //Set a new timestamp
     var date = new Date;
     reqObj.oauth_timestamp = Math.floor(date.getTime() / 1000)
+    
+    console.log(reqObj);
 
     // construct a param=value& string and uriEncode
     var paramsStr = '';
@@ -52,14 +52,13 @@ function sign(reqObj, item) {
 
     var sigBaseStr = "POST&" + encodeURIComponent(fatSecretRestUrl) + "&" + encodeURIComponent(paramsStr);
 
-    // no  Access Token token (there's no user .. we're just calling foods.search)
+    // no  Access Token token (there's no user .. we're just calling foods.search and foods.get)
     sharedSecret += "&";
 
     var hashedBaseStr = crypto.createHmac('sha1', sharedSecret).update(sigBaseStr).digest('base64');
 
     // Add oauth_signature to the request object
     reqObj.oauth_signature = hashedBaseStr;
-
     return reqObj;
 }
 
