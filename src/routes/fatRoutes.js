@@ -70,7 +70,7 @@ fatRouter.post("/search", function (req, res) {
     }).on('complete', function (data, response) {
 //        console.log(response);
 //        console.log("DATA: " + data + "\n");
-        res.send({data: data, response: response})
+        res.send(response)
     });
 });
 
@@ -82,7 +82,7 @@ fatRouter.post("/get", function (req, res) {
     }).on('complete', function (data, response) {
 //        console.log(response);
 //        console.log("DATA: " + data + "\n");
-        res.send({data: data, response: response})
+        res.send(response)
     });
 });
 
