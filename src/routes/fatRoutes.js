@@ -17,7 +17,7 @@ var searchReqObj = {
     oauth_signature_method: 'HMAC-SHA1',
     oauth_timestamp: Math.floor(date1.getTime() / 1000),
     oauth_version: '1.0',
-    search_expression: 'banana' // test query
+    search_expression: ''
 };
 var getReqObj = {
     food_id: 0,
@@ -28,19 +28,19 @@ var getReqObj = {
     oauth_signature_method: 'HMAC-SHA1',
     oauth_timestamp: Math.floor(date1.getTime() / 1000),
     oauth_version: '1.0',
-    search_expression: ""
+    search_expression: ''
 };
 
 function sign(reqObj, item) {
     // add dynamic search_expression and food_id values
     if (reqObj.method === 'food.search') reqObj.search_expression = item;
     else if (reqObj.method === 'food.get') reqObj.food_id = item;
-    
+    console.log(item);
     console.log(reqObj);
     
-    //Set a new timestamp
-    var date = new Date;
-    reqObj.oauth_timestamp = Math.floor(date.getTime() / 1000)
+//    //Set a new timestamp
+//    var date = new Date;
+//    reqObj.oauth_timestamp = Math.floor(date.getTime() / 1000)
 
     // construct a param=value& string and uriEncode
     var paramsStr = '';
