@@ -26,8 +26,7 @@ var getReqObj = {
     oauth_nonce: Math.random().toString(36).replace(/[^a-z]/, '').substr(2),
     oauth_signature_method: 'HMAC-SHA1',
     oauth_timestamp: 0,
-    oauth_version: '1.0',
-    search_expression: ''
+    oauth_version: '1.0'
 };
 
 function sign(reqObj, item) {
