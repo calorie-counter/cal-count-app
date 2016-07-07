@@ -36,6 +36,8 @@ function sign(reqObj, item) {
     if (reqObj.method === 'food.search') reqObj.search_expression = item;
     else if (reqObj.method === 'food.get') reqObj.food_id = item;
     
+    console.log(reqObj);
+    
     //Set a new timestamp
     var date = new Date;
     reqObj.oauth_timestamp = Math.floor(date.getTime() / 1000)
@@ -87,7 +89,7 @@ fatRouter.post("/get", function (req, res) {
         data: sign(getReqObj, req.body.food_id)
     }).on('complete', function (data, response) {
 //        console.log(response);
-        console.log("DATA: " + data + "\n");
+//        console.log("DATA: " + data + "\n");
         parseString(data, function(err, result) {
             if (err) {
                 res.status(500).send(err);
