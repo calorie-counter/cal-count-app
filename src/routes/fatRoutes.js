@@ -60,25 +60,29 @@ function sign(reqObj, item) {
 
 fatRouter.post("/search", function (req, res) {
     //SEARCH
-    rest.post(fatSecretRestUrl, {
-        data: sign(searchReqObj, req.body)
-    }).on('complete', function (data, response) {
-        console.log(response);
-        console.log("DATA: " + data + "\n");
-        res.send({data: data, response: response})
-    });
+//    rest.post(fatSecretRestUrl, {
+//        data: sign(searchReqObj, req.body)
+//    }).on('complete', function (data, response) {
+//        console.log(response);
+//        console.log("DATA: " + data + "\n");
+//        res.send({data: data, response: response})
+//    });
+    
+    res.send("/search working");
 });
 
 
 fatRouter.post("/get", function (req, res) {
     //GET
-    rest.post(fatSecretRestUrl, {
-        data: sign(getReqObj, req.body)
-    }).on('complete', function (data, response) {
-        console.log(response);
-        console.log("DATA: " + data + "\n");
-        res.send({data: data, response: response})
-    });
+//    rest.post(fatSecretRestUrl, {
+//        data: sign(getReqObj, req.body)
+//    }).on('complete', function (data, response) {
+//        console.log(response);
+//        console.log("DATA: " + data + "\n");
+//        res.send({data: data, response: response})
+//    });
+    
+    res.send("/get working");
 });
 
 module.exports = fatRouter;
