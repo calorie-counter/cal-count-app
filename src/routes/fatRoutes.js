@@ -69,7 +69,7 @@ fatRouter.post("/search", function (req, res) {
         data: sign(searchReqObj, req.body.search_expression)
     }).on('complete', function (data, response) {
 //        console.log(response);
-//        console.log("DATA: " + data + "\n");
+        console.log("DATA: " + data + "\n");
         res.send(data)
     });
 });
@@ -81,7 +81,7 @@ fatRouter.post("/get", function (req, res) {
         data: sign(getReqObj, req.body.food_id)
     }).on('complete', function (data, response) {
 //        console.log(response);
-//        console.log("DATA: " + data + "\n");
+        console.log("DATA: " + data + "\n");
         res.send(data)
     });
 });
