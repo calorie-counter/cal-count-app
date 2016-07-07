@@ -4,10 +4,10 @@
         <form class="well container" novalidate>
             <a class="pull-right" ng-hide="editing" title="Edit" ng-click="editing = true"><span class="glyphicon glyphicon-pencil"></span></a>
             <a class="pull-right" ng-show="editing" title="Save" ng-click="UserService.edit(UserService.CurrentUser); editing = !editing"><span class="glyphicon glyphicon-floppy-disk"></span></a>
-            <h2 class="text-center">Account Details</h2>
+            <h2 class="text-center titles">Account Details</h2>
             <br>
             <div class="col-md-8 col-md-offset-2 form-group">
-                <label for="name">Name:</label>
+                <label class="labels" for="name">Name:</label>
                 <div class="edit" ng-show="editing">
                     <input class="form-control" ng-show="editing" ng-model="UserService.currentUser.name">
                 </div>
@@ -17,7 +17,7 @@
             </div>
             <div class="col-md-8 col-md-offset-2 form-group">
                 <!--                           USER -->
-                <label for="user">Username:</label>
+                <label class="labels" for="user">Username:</label>
                 <div class="edit" ng-show="editing">
                     <input class="form-control" ng-show="editing" ng-model="UserService.currentUser.username" ng-hide="!user.editing" ng-show="user.editing">
                 </div>
@@ -27,7 +27,7 @@
             </div>
 
             <div class="col-md-8 col-md-offset-2 form-group">
-                <label for="email">Email:</label>
+                <label class="labels" for="email">Email:</label>
                 <div class="edit" ng-show="editing">
                     <input class="form-control" ng-show="editing" ng-model="UserService.currentUser.email" ng-hide="!email.editing" ng-show="email.editing">
                 </div>
@@ -43,10 +43,10 @@
         <form class="well container" novalidate>
             <a class="pull-right" ng-hide="dataEditing" title="Edit" ng-click="dataEditing = true"><span class="glyphicon glyphicon-pencil"></span></a>
             <a class="pull-right" ng-show="dataEditing" title="Save" ng-click="UserService.edit(UserService.currentUser); dataEditing = !dataEditing"><span class="glyphicon glyphicon-floppy-disk"></span></a>
-            <h2 class="text-center">User Data</h2>
+            <h2 class="text-center titles">User Data</h2>
             <br>
             <div class="col-md-8 col-md-offset-2 form-group">
-                <label for="age">Age:</label>
+                <label class="labels" for="age">Age:</label>
                 <div class="edit" ng-show="dataEditing">
                     <input type="number" class="form-control" ng-model="UserService.currentUser.age" ng-show="dataEditing">
                 </div>
@@ -56,7 +56,7 @@
             </div>
 
             <div class="col-md-8 col-md-offset-2 form-group">
-                <label for="height">Height:</label>
+                <label class="labels" for="height">Height:</label>
                 <div class="edit input-group" ng-show="dataEditing">
                     <input type="number" class="form-control" ng-model="UserService.currentUser.height" ng-show="dataEditing">
                     <span class="input-group-addon">in.</span>
@@ -67,7 +67,7 @@
             </div>
 
             <div class="col-md-8 col-md-offset-2 form-group">
-                <label for="weight">Weight:</label>
+                <label class="labels" for="weight">Weight:</label>
                 <div class="edit input-group" ng-show="dataEditing">
                     <input type="number" class="form-control" ng-model="UserService.currentUser.weight" ng-show="dataEditing">
                     <span class="input-group-addon">lbs.</span>
@@ -77,7 +77,7 @@
                 </div>
             </div>
             <div class="col-md-8 col-md-offset-2 form-group">
-                <label for="gender">Gender:</label>
+                <label class="labels" for="gender">Gender:</label>
                 <div class="edit input-group" ng-show="dataEditing">
                     <div class="btn-group" data-toggle="buttons">
                         <label class="btn btn-default active">
@@ -93,7 +93,7 @@
                 </div>
             </div>
             <div class="col-md-8 col-md-offset-2 form-group">
-                <label for="goal">Goal:</label>
+                <label class="labels" for="goal">Goal:</label>
                 <div class="edit input-group" ng-show="dataEditing">
                     <input type="number" class="form-control" ng-model="UserService.currentUser.goal" ng-show="dataEditing">
                     <span class="input-group-addon">kCal</span>

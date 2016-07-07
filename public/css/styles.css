@@ -10,6 +10,11 @@ body {}
     list-style-type: none;
 }
 
+.list-tabs
+
+h1.track-view-header {
+    display: inline;
+}
 
 /*Search input --> add html*/
 
@@ -112,4 +117,15 @@ form {
 form.well {
     background-color: #5E7C88;
     color: #24221F;
+}/*------------------------*/
+
+/*styling for profile page*/
+.titles {
+    text-decoration: underline; 
 }
+
+.labels {
+    color: #337AB7; 
+}
+
+/*------------------------*/
