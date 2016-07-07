@@ -6,7 +6,7 @@ var crypto = require("crypto");
 var apiKey = "40a95beb5d134a4aa81ec584486a23d9",
     fatSecretRestUrl = "http://platform.fatsecret.com/rest/server.api",
     sharedSecret = "c779145a3cc84bbc8820e336def62a37",
-    date = new Date;
+    date1 = new Date;
 
 var searchReqObj = {
     format: 'json',
@@ -14,7 +14,7 @@ var searchReqObj = {
     oauth_consumer_key: apiKey,
     oauth_nonce: Math.random().toString(36).replace(/[^a-z]/, '').substr(2),
     oauth_signature_method: 'HMAC-SHA1',
-    oauth_timestamp: Math.floor(date.getTime() / 1000),
+    oauth_timestamp: Math.floor(date1.getTime() / 1000),
     oauth_version: '1.0',
     search_expression: 'banana' // test query
 };
@@ -27,12 +27,17 @@ var getReqObj = {
     oauth_signature_method: 'HMAC-SHA1',
     oauth_timestamp: Math.floor(date.getTime() / 1000),
     oauth_version: '1.0',
-    search_expression: 'banana' // test query
+    search_expression: ""
 };
 
 function sign(reqObj, item) {
+    // add dynamic search_expression and food_id values
     if (reqObj.method === 'food.search') reqObj.search_expression = item;
     else if (reqObj.method === 'food.get') reqObj.food_id = item;
+    
+    //Set a new timestamp
+    var date = new Date;
+    reqObj.oauth_timestamp = Math.floor(date.getTime() / 1000)
 
     // construct a param=value& string and uriEncode
     var paramsStr = '';
