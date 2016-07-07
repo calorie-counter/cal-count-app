@@ -1,35 +1,37 @@
 <div class="container">
     <div class="row form">
         <div class="col-md-4 col-md-offset-4">
-            <form class="well" novalidate>
+            <form class="well" name="signupForm" novalidate>
                 <div class="control-group">
                     <h3 class="text-center">Sign Up</h3>
                     <div class="control-control">
                         <label for="name">Full Name</label>
-                        <input class="form-control" type="text" ng-model="newUser.name">
+                        <input class="form-control" type="text" name="name" ng-model="newUser.name" required>
                     </div>
                     <br>
                     <div class="control-control">
                         <label for="username">Username</label>
-                        <input class="form-control" type="text" ng-model="newUser.username">
+                        <input class="form-control" type="text" name="username" ng-model="newUser.username" required>
                     </div>
                     <br>
                     <div class="control-control">
                         <label for="email">Email</label>
-                        <input class="form-control" type="email" ng-model="newUser.email">
+                        <input class="form-control" type="email" name="email" ng-model="newUser.email" required>
                     </div>
                     <br>
                     <div class="control-control">
                         <label for="password">Password</label>
-                        <input class="form-control" type="password" ng-model="newUser.password">
+                        <input ng-minlength="6" class="form-control" type="password" name="password" ng-model="newUser.password" required>
+                        <p class="help-block" ng-show="signupForm.password.$error.minlength || password.$invalid">Password must be at least 6 characters!</p>
                     </div>
                     <br>
                     <div class="control-control">
                         <label for="repeat-password">Re-type Password</label>
-                        <input class="form-control" type="password" ng-model="passwordRepeat">
+                        <input class="form-control" ng-minlength="6" type="password" name="repeatPassword" ng-model="passwordRepeat" required>
+                        <p class="help-block" ng-show="repeatPassword.$invalid || newUser.password !== passwordRepeat">Password must match!</p>
                     </div>
                     <br>
-                    <button class="btn btn-primary btn-small center-block" ng-click="signup(newUser)">Signup</button>
+                    <button ng-disabled="signupForm.$invalid" class="btn btn-primary btn-small center-block" ng-click="signup(newUser)">Signup</button>
                 </div>
             </form>
         </div>
