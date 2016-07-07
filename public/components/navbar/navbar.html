@@ -11,9 +11,9 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li ng-show="userService.isAuthenticated()" class="active navRight"><a href="#/profile" class="navRight">Profile<span class="sr-only">(current)</span></a></li>
-                <li ng-show="userService.isAuthenticated()" class="active navRight"><a href="#/add" class="navRight">Add<span class="sr-only">(current)</span></a></li>
-                <li ng-show="userService.isAuthenticated()" class="active navRight"><a href="#/track" class="navRight">Track<span class="sr-only">(current)</span></a></li>
+                <li ng-show="userService.isAuthenticated()"><a class="navRight" href="#/profile">Profile<span class="sr-only">(current)</span></a></li>
+                <li ng-show="userService.isAuthenticated()"><a class="navRight" href="#/add">Add<span class="sr-only">(current)</span></a></li>
+                <li ng-show="userService.isAuthenticated()"><a class="navRight" href="#/track">Track<span class="sr-only">(current)</span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li ng-hide="userService.isAuthenticated()"><a class="navRight" href="#/login">Login</a></li>
