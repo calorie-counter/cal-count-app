@@ -17,17 +17,29 @@ var getReqObj = {
     type: "b",
     format: "json"
 }
+var concat = function (object) {
+    var keys = Object.keys(object).sort();
+    var concatString = "";
+    for (var i = 0; i < keys.length; i++) {
+        if (i === 0) {
+            concatString += keys[i] + "=" + object[keys[i]];
+        } else {
+            concatString += "&" + keys[i] + "=" + object[keys[i]];
+        }
+    }
+    return concatString;
+};
 
 // Launch!
 
 fatRouter.post("/search", function (req, res) {
     //SEARCH
     searchReqObj.q = req.body.search_expression;
-    rest.get(reqeustURL + "search/", {
-        params: searchReqObj
+    rest.get(reqeustURL + "search/" + uri, {
+        query: searchReqObj
     }).on('complete', function (data, response) {
-//        console.log(response);
-//        console.log("DATA: " + data + "\n");
+        //        console.log(response);
+        //        console.log("DATA: " + data + "\n");
         res.send(data);
     });
 });
@@ -36,12 +48,12 @@ fatRouter.post("/search", function (req, res) {
 fatRouter.post("/get", function (req, res) {
     //GET
     getReqObj.ndbno = req.body.food_id;
-    rest.get(fatSecretRestUrl = "ndb/", {
-        params: getReqObj
+    rest.get(fatSecretRestUrl = "ndb/reports/", {
+        query: getReqObj
     }).on('complete', function (data, response) {
-//        console.log(response);
-//        console.log("DATA: " + data + "\n");
-       res.send(data);
+        //        console.log(response);
+        //        console.log("DATA: " + data + "\n");
+        res.send(data);
     });
 });
 
