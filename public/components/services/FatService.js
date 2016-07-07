@@ -8,7 +8,7 @@ app.service("FatService", ["$http", function ($http) {
     this.fatSearch = function (searchTerm) {
         $http.post("/api/fatsecret/search", {search_expression: searchTerm}).then(function(data) {
             console.log(data);
-            self.searchResults = data.foods.food;
+            self.searchResults = data.data.foods.food;
         });
     };
 
