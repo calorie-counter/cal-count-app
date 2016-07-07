@@ -66,17 +66,17 @@ function sign(reqObj, item) {
 
 fatRouter.post("/search", function (req, res) {
     //SEARCH
-    console.log("Hi me and bob")
     rest.post(fatSecretRestUrl, {
         data: sign(searchReqObj, req.body.search_expression)
     }).on('complete', function (data, response) {
 //        console.log(response);
 //        console.log("DATA: " + data + "\n");
-        console.log("Hi bob")
+        console.log(response);
         parseString(response, function(err, result) {
-            console.log("hello");
-            if (err) res.status(500).send(err);
-            else res.send(result);
+            if (err) {
+                res.status(500).send(err);
+                console.log(err);
+            } else res.send(result);
         });
     });
 });
@@ -90,8 +90,10 @@ fatRouter.post("/get", function (req, res) {
 //        console.log(response);
 //        console.log("DATA: " + data + "\n");
         parseString(response, function(err, result) {
-            if (err) res.status(500).send(err);
-            else res.send(result);
+            if (err) {
+                res.status(500).send(err);
+                console.log(err);
+            } else res.send(result);
         });
     });
 });
