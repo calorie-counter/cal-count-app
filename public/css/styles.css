@@ -76,17 +76,21 @@ nav.navbar.navbar-default {
 
 .navbar-default .navbar-nav>li>a,
 a.navbar-brand.calCount,
-.active {
+li.active {
     color: #24221F;
 }
 
 .navbar-default .navbar-nav>li>a:hover,
 a.navbar-brand.calCount:hover,
-.active:hover {
+li.active:hover,
+.nav>li:hover,
+a.navRight:hover{
     background-color: #363F45;
     color: #FEB41C;
     font-weight: 700;
 }
+
+li
 
 div.container.welcome-page.ng-scope {
     background-image: url("https://static.pexels.com/photos/4815/food-healthy-morning-cereals.jpg");
@@ -124,8 +128,16 @@ form.well {
     text-decoration: underline; 
 }
 
+.glyphicon {
+    color: #363F45;
+    font-size: x-large;
+}
+
+/*
 .labels {
     color: #337AB7; 
 }
+*/
+
 
 /*------------------------*/
