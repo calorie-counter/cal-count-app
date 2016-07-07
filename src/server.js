@@ -22,6 +22,7 @@ app.use("/api", expressJwt({secret: config.secret}));
 
 app.use("/auth", require("./routes/authRoutes"));
 app.use("/api/foods", require("./routes/foodRoutes"));
+app.use("/api/fatsecret", require("./routes/fatRoutes"));
 
 app.listen(port, function() {
     console.log("App is lisetening on Port" + port + ".")
