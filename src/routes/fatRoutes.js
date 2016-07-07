@@ -25,7 +25,7 @@ var getReqObj = {
     oauth_consumer_key: apiKey,
     oauth_nonce: Math.random().toString(36).replace(/[^a-z]/, '').substr(2),
     oauth_signature_method: 'HMAC-SHA1',
-    oauth_timestamp: Math.floor(date.getTime() / 1000),
+    oauth_timestamp: Math.floor(date1.getTime() / 1000),
     oauth_version: '1.0',
     search_expression: ""
 };
