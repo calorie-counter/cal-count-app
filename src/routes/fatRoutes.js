@@ -36,7 +36,7 @@ function sign(reqObj, item) {
     console.log(reqObj.method);
     if (reqObj.method === 'food.search') {
         reqObj.search_expression = item;
-        console.log("hello";)
+        console.log("hello")
     } else if (reqObj.method === 'food.get') reqObj.food_id = item;
     console.log(item);
     console.log(reqObj);
