@@ -6,20 +6,16 @@ app.service("FatService", ["$http", function ($http) {
     this.currentFood = {};
     
     this.fatSearch = function (searchTerm) {
-        $http.post("/api/fatsecret/search", searchTerm).then(function(res) {
-            console.log(res);
-            console.log(res.data);
-            console.log(res.response);
-            self.searchResults = res.data.foods;
+        $http.post("/api/fatsecret/search", {search_expression: searchTerm}).then(function(data) {
+            console.log(data);
+            self.searchResults = data.data.foods.food;
         });
     };
 
     this.getFood = function (id) {
-        $http.post("/api/fatsecret/get", id).then(function(res) {
-            console.log(res);
-            console.log(res.data);
-            console.log(res.response);
-            self.searchResults = res.data.foods;
+        $http.post("/api/fatsecret/get", {food_id: id}).then(function(data) {
+            console.log(data);
+            self.searchResults = data.foods;
         });
     };
 }]);
