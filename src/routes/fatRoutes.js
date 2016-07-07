@@ -2,6 +2,7 @@ var express = require("express");
 var fatRouter = express.Router();
 var rest = require("restler");
 var crypto = require("crypto");
+var parseString = require('xml2js').parseString;
 
 var apiKey = "40a95beb5d134a4aa81ec584486a23d9",
     fatSecretRestUrl = "http://platform.fatsecret.com/rest/server.api",
@@ -9,7 +10,7 @@ var apiKey = "40a95beb5d134a4aa81ec584486a23d9",
     date1 = new Date;
 
 var searchReqObj = {
-    format: 'json',
+//    format: 'json',
     method: 'foods.search',
     oauth_consumer_key: apiKey,
     oauth_nonce: Math.random().toString(36).replace(/[^a-z]/, '').substr(2),
@@ -20,7 +21,7 @@ var searchReqObj = {
 };
 var getReqObj = {
     food_id: 0,
-    format: 'json',
+//    format: 'json',
     method: 'foods.get',
     oauth_consumer_key: apiKey,
     oauth_nonce: Math.random().toString(36).replace(/[^a-z]/, '').substr(2),
@@ -69,8 +70,11 @@ fatRouter.post("/search", function (req, res) {
         data: sign(searchReqObj, req.body.search_expression)
     }).on('complete', function (data, response) {
 //        console.log(response);
-        console.log("DATA: " + data + "\n");
-        res.send(data)
+//        console.log("DATA: " + data + "\n");
+        parseString(response, function(err, result) {
+            if (err) res.status(500).send(err);
+            else res.send(result);
+        });
     });
 });
 
@@ -81,8 +85,11 @@ fatRouter.post("/get", function (req, res) {
         data: sign(getReqObj, req.body.food_id)
     }).on('complete', function (data, response) {
 //        console.log(response);
-        console.log("DATA: " + data + "\n");
-        res.send(data)
+//        console.log("DATA: " + data + "\n");
+        parseString(response, function(err, result) {
+            if (err) res.status(500).send(err);
+            else res.send(result);
+        });
     });
 });
 
