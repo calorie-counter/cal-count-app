@@ -1,98 +1,47 @@
 var express = require("express");
 var fatRouter = express.Router();
 var rest = require("restler");
-var crypto = require("crypto");
-var parseString = require('xml2js').parseString;
 
-var apiKey = "40a95beb5d134a4aa81ec584486a23d9",
-    fatSecretRestUrl = "http://platform.fatsecret.com/rest/server.api",
-    sharedSecret = "c779145a3cc84bbc8820e336def62a37";
+var reqeustURL = "https://api.data.gov/nrel/alt-fuel-stations/v1/nearest.json?api_key=T11UeXOU7qG5Hu0X1anIZzAnUsYMOt4OOZIFjB8C&location=Denver+CO"
 
 var searchReqObj = {
-//    format: 'json',
-    method: 'foods.search',
-    oauth_consumer_key: apiKey,
-    oauth_nonce: Math.random().toString(36).replace(/[^a-z]/, '').substr(2),
-    oauth_signature_method: 'HMAC-SHA1',
-    oauth_timestamp: 0,
-    oauth_version: '1.0',
-    search_expression: ''
+    api_key: "T11UeXOU7qG5Hu0X1anIZzAnUsYMOt4OOZIFjB8C",
+    q: "",
+    sort: "r",
+    format: "json"
 };
+
 var getReqObj = {
-    food_id: 0,
-//    format: 'json',
-    method: 'foods.get',
-    oauth_consumer_key: apiKey,
-    oauth_nonce: Math.random().toString(36).replace(/[^a-z]/, '').substr(2),
-    oauth_signature_method: 'HMAC-SHA1',
-    oauth_timestamp: 0,
-    oauth_version: '1.0'
-};
-
-function sign(reqObj, item) {
-    // add dynamic search_expression and food_id values
-    if (reqObj.method === 'foods.search') reqObj.search_expression = item;
-    else if (reqObj.method === 'foods.get') reqObj.food_id = item;
-    
-    //Set a new timestamp
-    var date = new Date;
-    reqObj.oauth_timestamp = Math.floor(date.getTime() / 1000)
-    
-    console.log(reqObj);
-
-    // construct a param=value& string and uriEncode
-    var paramsStr = '';
-    for (var i in reqObj) {
-        paramsStr += "&" + i + "=" + reqObj[i];
-    }
-
-    // yank off that first "&"
-    paramsStr = paramsStr.substr(1);
-
-    var sigBaseStr = "POST&" + encodeURIComponent(fatSecretRestUrl) + "&" + encodeURIComponent(paramsStr);
-
-    // no  Access Token token (there's no user .. we're just calling foods.search and foods.get)
-    sharedSecret += "&";
-
-    var hashedBaseStr = crypto.createHmac('sha1', sharedSecret).update(sigBaseStr).digest('base64');
-
-    // Add oauth_signature to the request object
-    reqObj.oauth_signature = hashedBaseStr;
-    return reqObj;
+    api_key: "T11UeXOU7qG5Hu0X1anIZzAnUsYMOt4OOZIFjB8C",
+    ndbno: 0,
+    type: "b",
+    format: "json"
 }
 
 // Launch!
 
 fatRouter.post("/search", function (req, res) {
     //SEARCH
-    rest.post(fatSecretRestUrl, {
-        data: sign(searchReqObj, req.body.search_expression)
+    searchReqObj.q = req.body.search_expression;
+    rest.post(reqeustURL, {
+        params: searchReqObj
     }).on('complete', function (data, response) {
 //        console.log(response);
 //        console.log("DATA: " + data + "\n");
-        parseString(data, function(err, result) {
-            if (err) {
-                res.status(500).send(err);
-                console.log(err);
-            } else res.send(result);
-        });
+        res.send(data);
     });
 });
 
 
 fatRouter.post("/get", function (req, res) {
     //GET
+    getReqObj.ndbno = req.body.food_id;
     rest.post(fatSecretRestUrl, {
-        data: sign(getReqObj, req.body.food_id)
+        params: getReqObj
     }).on('complete', function (data, response) {
 //        console.log(response);
 //        console.log("DATA: " + data + "\n");
-        parseString(data, function(err, result) {
-            if (err) {
-                res.status(500).send(err);
-                console.log(err);
-            } else res.send(result);
-        });
+       res.send(data);
     });
 });
 

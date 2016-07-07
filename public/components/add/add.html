@@ -14,9 +14,8 @@
             <div ng-switch="addView">
                 <div class="results" ng-switch-when="search">
                     <div class="list-group">
-                        <a ng-click="FatService.getFood(food.food_id); addView = 'save'" class="list-group-item" ng-repeat="food in FatService.searchResults">
-                            <span class="foodName">{{ food.food_name }}</span>
-                            <span class="foodDesc">{{ food.food_description }}</span>
+                        <a ng-click="FatService.getFood(food.ndbno); addView = 'save'" class="list-group-item" ng-repeat="food in FatService.searchResults">
+                            <span class="foodName">{{ food.name }}</span>
                         </a>
                     </div>
                 </div>
