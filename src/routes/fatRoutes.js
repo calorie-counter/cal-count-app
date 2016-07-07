@@ -71,7 +71,9 @@ fatRouter.post("/search", function (req, res) {
     }).on('complete', function (data, response) {
 //        console.log(response);
 //        console.log("DATA: " + data + "\n");
+        console.log("Hi bob")
         parseString(response, function(err, result) {
+            console.log("hello");
             if (err) res.status(500).send(err);
             else res.send(result);
         });
