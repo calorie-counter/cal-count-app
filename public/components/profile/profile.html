@@ -1,15 +1,15 @@
 <div class="profile container">
     <!--   maybe make them clickable?  -->
     <div class="row userProfile">
-        <form class="well container" novalidate>
+        <form class="well container" name="detailsForm" novalidate>
             <a class="pull-right" ng-hide="editing" title="Edit" ng-click="editing = true"><span class="glyphicon glyphicon-pencil"></span></a>
-            <a class="pull-right" ng-show="editing" title="Save" ng-click="UserService.edit(UserService.CurrentUser); editing = !editing"><span class="glyphicon glyphicon-floppy-disk"></span></a>
+            <a class="pull-right" ng-show="editing" title="Save" ng-disabled="detailsForm.$invalid" ng-click="UserService.edit(UserService.CurrentUser); editing = !editing"><span class="glyphicon glyphicon-floppy-disk"></span></a>
             <h2 class="text-center titles">Account Details</h2>
             <br>
             <div class="col-md-8 col-md-offset-2 form-group">
                 <label class="labels" for="name">Name:</label>
                 <div class="edit" ng-show="editing">
-                    <input class="form-control" ng-show="editing" ng-model="UserService.currentUser.name">
+                    <input class="form-control" ng-show="editing" name="name" ng-model="UserService.currentUser.name" required>
                 </div>
                 <div class="view" ng-hide="editing">
                     <h4>{{ UserService.currentUser.name }}</h4>
@@ -19,7 +19,7 @@
                 <!--                           USER -->
                 <label class="labels" for="user">Username:</label>
                 <div class="edit" ng-show="editing">
-                    <input class="form-control" ng-show="editing" ng-model="UserService.currentUser.username" ng-hide="!user.editing" ng-show="user.editing">
+                    <input class="form-control" ng-show="editing" ng-model="UserService.currentUser.username" name="username" ng-hide="!user.editing" ng-show="user.editing" required>
                 </div>
                 <div class="view" ng-hide="editing">
                     <h4>{{ UserService.currentUser.username }}</h4>
@@ -29,7 +29,7 @@
             <div class="col-md-8 col-md-offset-2 form-group">
                 <label class="labels" for="email">Email:</label>
                 <div class="edit" ng-show="editing">
-                    <input class="form-control" ng-show="editing" ng-model="UserService.currentUser.email" ng-hide="!email.editing" ng-show="email.editing">
+                    <input class="form-control" ng-show="editing" ng-model="UserService.currentUser.email" name="email" ng-hide="!email.editing" ng-show="email.editing" required>
                 </div>
                 <div class="view" ng-hide="editing">
                     <h4>{{ UserService.currentUser.email }}</h4>
@@ -40,15 +40,15 @@
     </div>
     <!--    find a way to divide?-->
     <div class="row userData">
-        <form class="well container" novalidate>
+        <form class="well container" name="dataForm" novalidate>
             <a class="pull-right" ng-hide="dataEditing" title="Edit" ng-click="dataEditing = true"><span class="glyphicon glyphicon-pencil"></span></a>
-            <a class="pull-right" ng-show="dataEditing" title="Save" ng-click="UserService.edit(UserService.currentUser); dataEditing = !dataEditing"><span class="glyphicon glyphicon-floppy-disk"></span></a>
+            <a class="pull-right" ng-show="dataEditing" title="Save" ng-disabled="dataForm.$invalid" ng-click="UserService.edit(UserService.currentUser); dataEditing = !dataEditing"><span class="glyphicon glyphicon-floppy-disk"></span></a>
             <h2 class="text-center titles">User Data</h2>
             <br>
             <div class="col-md-8 col-md-offset-2 form-group">
                 <label class="labels" for="age">Age:</label>
                 <div class="edit" ng-show="dataEditing">
-                    <input type="number" class="form-control" ng-model="UserService.currentUser.age" ng-show="dataEditing">
+                    <input type="number" class="form-control" name="age" ng-model="UserService.currentUser.age" ng-show="dataEditing" required>
                 </div>
                 <div class="view" ng-hide="dataEditing">
                     <h4>{{ UserService.currentUser.age }}</h4>
@@ -58,7 +58,7 @@
             <div class="col-md-8 col-md-offset-2 form-group">
                 <label class="labels" for="height">Height:</label>
                 <div class="edit input-group" ng-show="dataEditing">
-                    <input type="number" class="form-control" ng-model="UserService.currentUser.height" ng-show="dataEditing">
+                    <input type="number" class="form-control" name="height" ng-model="UserService.currentUser.height" ng-show="dataEditing" required>
                     <span class="input-group-addon">in.</span>
                 </div>
                 <div class="view" ng-hide="dataEditing">
@@ -69,7 +69,7 @@
             <div class="col-md-8 col-md-offset-2 form-group">
                 <label class="labels" for="weight">Weight:</label>
                 <div class="edit input-group" ng-show="dataEditing">
-                    <input type="number" class="form-control" ng-model="UserService.currentUser.weight" ng-show="dataEditing">
+                    <input type="number" class="form-control" name="weight" ng-model="UserService.currentUser.weight" ng-show="dataEditing" required>
                     <span class="input-group-addon">lbs.</span>
                 </div>
                 <div class="view" ng-hide="dataEditing">
@@ -95,7 +95,7 @@
             <div class="col-md-8 col-md-offset-2 form-group">
                 <label class="labels" for="goal">Goal:</label>
                 <div class="edit input-group" ng-show="dataEditing">
-                    <input type="number" class="form-control" ng-model="UserService.currentUser.goal" ng-show="dataEditing">
+                    <input type="number" class="form-control" ng-model="UserService.currentUser.goal" ng-show="dataEditing" required>
                     <span class="input-group-addon">kCal</span>
                 </div>
                 <div class="view" ng-hide="dataEditing">
