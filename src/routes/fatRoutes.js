@@ -66,6 +66,7 @@ function sign(reqObj, item) {
 
 fatRouter.post("/search", function (req, res) {
     //SEARCH
+    console.log("Hi me and bob")
     rest.post(fatSecretRestUrl, {
         data: sign(searchReqObj, req.body.search_expression)
     }).on('complete', function (data, response) {
