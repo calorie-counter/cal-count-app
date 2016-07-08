@@ -14,7 +14,7 @@ var searchReqObj = {
 var getReqObj = {
     api_key: "T11UeXOU7qG5Hu0X1anIZzAnUsYMOt4OOZIFjB8C",
     ndbno: 0,
-    type: "b",
+    type: "f",
     format: "json"
 }
 var concat = function (object) {
@@ -35,9 +35,8 @@ var concat = function (object) {
 fatRouter.post("/search", function (req, res) {
     //SEARCH
     searchReqObj.q = req.body.search_expression;
-    rest.get(reqeustURL + "search/" + uri, {
-        query: searchReqObj
-    }).on('complete', function (data, response) {
+    var searchUri = concat(searchReqObj);
+    rest.get(reqeustURL + "/ndb/search/?" + searchUri).on('complete', function (data, response) {
         //        console.log(response);
         //        console.log("DATA: " + data + "\n");
         res.send(data);
@@ -48,9 +47,9 @@ fatRouter.post("/search", function (req, res) {
 fatRouter.post("/get", function (req, res) {
     //GET
     getReqObj.ndbno = req.body.food_id;
-    rest.get(fatSecretRestUrl = "ndb/reports/", {
-        query: getReqObj
-    }).on('complete', function (data, response) {
+    var getUri = concat(getReqObj);
+    console.log(getUri);
+    rest.get(reqeustURL + "ndb/reports/?" + getUri).on('complete', function (data, response) {
         //        console.log(response);
         //        console.log("DATA: " + data + "\n");
         res.send(data);
