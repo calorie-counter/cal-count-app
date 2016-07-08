@@ -21,14 +21,14 @@
                     <br>
                     <div class="control-control">
                         <label for="password">Password</label>
-                        <input ng-minlength="6" class="form-control" type="password" name="password" ng-model="newUser.password" required>
+                        <input class="form-control" ng-minlength="6" type="password" name="password" ng-model="newUser.password" required>
                         <p class="help-block" ng-show="signupForm.password.$error.minlength || password.$invalid">Password must be at least 6 characters!</p>
                     </div>
                     <br>
                     <div class="control-control">
                         <label for="repeat-password">Re-type Password</label>
                         <input class="form-control" ng-minlength="6" type="password" name="repeatPassword" ng-model="passwordRepeat" required>
-                        <p class="help-block" ng-show="repeatPassword.$invalid || newUser.password !== passwordRepeat">Password must match!</p>
+                        <p class="help-block" ng-show="newUser.password !== passwordRepeat">Passwords must match!</p>
                     </div>
                     <br>
                     <button ng-disabled="signupForm.$invalid" class="btn btn-primary btn-small center-block" ng-click="signup(newUser)">Signup</button>
