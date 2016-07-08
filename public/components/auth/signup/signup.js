@@ -9,11 +9,7 @@ app.controller("signupCtrl", ["$scope", "$location", "UserService", function ($s
             return alert($scope.passwordMessage);
         } else {
             UserService.signup(user).then(function (response) {
-                UserService.login(user).then(function (response) {
-                    $location.path("/home");
-                }, function (response) {
-                    alert("There was a problem: " + response.data.message);
-                });
+                $location.path("/login");
             }, function (response) {
                 alert("There has been a problem: " + response.data.message);
             });
