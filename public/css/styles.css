@@ -1,9 +1,5 @@
-body {}
-
-.goals {
-    height: 85px;
-    border: 1px solid black;
-    margin-bottom: 10px;
+body {
+    background-color: #5E7C88;
 }
 
 .tabmenu {
@@ -56,6 +52,7 @@ h1.track-view-header {
 
 
 /*
+https://color.adobe.com/Saffron-umbrella-color-theme-1641683/edit/?copy=true&base=2&rule=Custom&selected=2&name=Copy%20of%20Saffron%20umbrella&mode=rgb&rgbvalues=0.141176,0.133333,0.121569,0.211765,0.247059,0.270588,0.294118,0.372549,0.427451,0.368627,0.486275,0.533333,0.996078,0.705882,0.109804&swatchOrder=0,1,2,3,4
 Dark to light
 #24221F #363F45 #4B5F6D #5E7C88 #FEB41C
 */
@@ -64,28 +61,41 @@ nav.navbar.navbar-default {
     background-color: #4B5F6D;
     margin-bottom: 0px;
     text-decoration-color: #24221F;
+    border: 1px solid #4B5F6D;
+    border-radius: 0px;
+}
+
+form.well {
+    border: 5px solid #24221F;
+    border-radius: 10px;
 }
 
 .navRight:hover {
     color: #FEB41C;
 }
 
-.navRight {
-    color: aqua;
-}
 
 .navbar-default .navbar-nav>li>a,
 a.navbar-brand.calCount,
-.active {
+a.navbar-brand.calCount:visited,
+li.active {
+    color: #24221F;
+}
+.navbar-default .navbar-nav>li>a:visited,
+a.navbar-brand.calCount:visited,
+a.navbar-brand.calCount:visited,
+li.active:visited {
     color: #24221F;
 }
 
 .navbar-default .navbar-nav>li>a:hover,
 a.navbar-brand.calCount:hover,
-.active:hover {
-    background-color: #363F45;
-    color: #FEB41C;
-    font-weight: 700;
+li.active:hover,
+.nav>li:hover,
+a.navRight:hover{
+    background-color: #363F45 !important;
+    color: #FEB41C !important;
+    font-weight: 700 !important;
 }
 
 div.container.welcome-page.ng-scope {
@@ -103,6 +113,12 @@ div.jumbotron {
 
 .yellow {
     color: #FEB41C;
+}
+
+.yellow:hover {
+    text-decoration: none;
+    color: #FEB41C;
+    font-weight: 700;
 }
 
 
@@ -124,8 +140,118 @@ form.well {
     text-decoration: underline; 
 }
 
+.glyphicon {
+    color: #363F45;
+    font-size: x-large;
+}
+/*---------------Track page--------------*/
+/*#24221F #363F45 #4B5F6D #5E7C88 #FEB41C*/
+.goals {
+    height: 115px;
+    width: 100%;
+    border: 5px solid #24221F;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+/*
+.nav-pills>li.active>a{
+    background-color: #363F45;
+    color: #FEB41C;
+}
+*/
+
+.nav-pills>li>a:hover,
+.nav-pills>li>a:focus {
+    background-color: #4B5F6D;
+    color: #363F45;
+}
+
+.nav-pills>li.active>a {
+    background-color: #363F45;
+    color: #FEB41C;
+}
+
+a {
+    color: inherit;
+}
+
+
+ .nav-pills>li.active>a:hover{
+     background-color: #4B5F6D;
+     color: #24221F;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus {
+     background-color: #4B5F6D;
+     color: #FEB41C;
+     border-radius: 0px;
+}
+
+button.trackButton {
+    background-color: #363F45;
+    color: #FEB41C;
+    
+}
+
+button.trackButton:hover {
+    color: #FEB41C;
+    font-weight: 700;
+}
+
+div.row.well {
+    background-color: #4B5F6D;
+    color: #24221F; 
+    border: 1px solid #4B5F6D;
+}
+
+select.selectors {
+    background-color: #5E7C88;
+    color: black;
+}
+select.selectors:active {
+    background-color: #5E7C88;
+    color: black;
+}
+
+/*-----------ADD PAGE-------------*/
+
+.add {
+    margin-top: 25px;
+}
+
+
+/*
 .labels {
     color: #337AB7; 
 }
+*/
+
 
 /*------------------------*/
+
+/*From validation*/
+
+form[novalidate] input {
+    border-left-width: 8px;
+    border-color: #3498db;
+    border-style: solid; 
+}
+
+input[required].ng-pristine {
+    border-color: #e74c3c;
+}
+
+input.ng-invalid.ng-dirty {
+    border-color: #e74c3c;
+}
+
+input.ng-valid.ng-dirty {
+    border-color: #2ecc71;
+}
+
+p.help-block {
+    color: #FEB41C;
+}
+/*---------------*/
