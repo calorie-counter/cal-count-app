@@ -132,14 +132,12 @@
                             <div class="col-xs-12">
                                 <div class="list-group">
                                     <div ng-repeat="food in foodService.foodList track by $index">
-                                        <button type="button" class="list-group-item" ng-click="set($index)"><span class="food-name">{{ food.food_name }}</span><span ng-show="food.brand_name" class="brand-name">{{ food.brand_name }}</span><span class="calories">{{ food.calories }}</span><span class="cal-label">kCal</span></button>
+                                        <button type="button" class="list-group-item" ng-click="set($index)"><span class="food-name">{{ food.name }}</span><span class="calories">{{ food.calories }}</span><span class="cal-label">kCal</span></button>
                                         <div class="nutrition-info" ng-show="i === $index">
                                             <h3 class="nutrition">Nutrition Facts</h3>
                                             <p class="serving">
-                                                <span class="nutrition-label">Serving Size: </span>
-                                                <span class="number">{{ food.number_of_units }} </span>
-                                                <span class="unit">{{ food.serving_description }} </span>
-                                                <span>({{ food.metric_serving_amount }}{{ food.metric_serving_unit }})</span>
+                                                <span class="nutrition-label">Food Group: </span>
+                                                <span class="unit">{{ food.food_group }} </span>
                                             </p>
                                             <p class="servings">
                                                 <span class="nutrition-label">Servings: </span>

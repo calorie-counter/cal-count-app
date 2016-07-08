@@ -1,6 +1,6 @@
 var app = angular.module("CalorieApp");
 
-app.service("FoodService", ["$http", function($http) {
+app.service("FoodService", ["$http", "UserService", function($http, UserService) {
     var self = this; 
     this.foodList = [];
     this.food = {}; 
@@ -24,7 +24,7 @@ app.service("FoodService", ["$http", function($http) {
     };
     
     this.getFood = function(food) {
-        return $http.get("/api/foods/" + food._id).then(function(response) {
+        $http.get("/api/foods/" + food._id).then(function(response) {
             self.food = response.data; 
         }, function(response) {
             alert("Error " + response.status + ": " + response.statusText);
@@ -32,7 +32,11 @@ app.service("FoodService", ["$http", function($http) {
     };
     
     this.addFood = function(food) {
-        return $http.post("/api/foods", food).then(function(response) {
+        food.user = UserService.currentUser._id;
+        food.day = new Date().getDate();
+        food.month = new Date().getMonth();
+        food.year = new Date().getFullYear();
+        $http.post("/api/foods", food).then(function(response) {
             self.foodList.push(response.data); 
         }, function(response) {
             alert("Error " + response.status + ": " + response.statusText);
@@ -40,7 +44,7 @@ app.service("FoodService", ["$http", function($http) {
     };
     
     this.deleteFood = function(index, food) {
-        return $http.delete("/api/foods/" + food._id).then(function(response) {
+        $http.delete("/api/foods/" + food._id).then(function(response) {
             self.foodList.splice(index, 1); 
         }, function(response) {
             alert("Error " + response.status + ": " + response.statusText);
@@ -48,7 +52,7 @@ app.service("FoodService", ["$http", function($http) {
     };
     
     this.updateFood = function(index, food) {
-        return $http.put("/api/foods/" + food._id, food).then(function(response) {
+        $http.put("/api/foods/" + food._id, food).then(function(response) {
             self.foodList[index] = response.data; 
         }, function(response) {
             alert("Error " + response.status + ": " + response.statusText);

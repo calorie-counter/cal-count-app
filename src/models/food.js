@@ -2,15 +2,15 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var foodSchema = new Schema({
-    food_id: {
+    ndbno: {
         type: Number,
         required: true
     },
-    food_name: {
+    name: {
         type: String,
         required: true
     },
-    food_type: {
+    food_group: {
         type: String,
         required: true
     },
@@ -36,31 +36,6 @@ var foodSchema = new Schema({
     },
     cholesterol: {
         type: Number,
-        required: true
-    },
-    brand_name: String,
-    serving_id: {
-        type: String,
-        required: true
-    },
-    serving_description: {
-        type: String,
-        required: true
-    },
-    metric_serving_amount: {
-        type: Number,
-        required: true
-    },
-    metric_serving_unit: {
-        type: Number,
-        required: true
-    },
-    number_of_units: {
-        type: Number,
-        required: true
-    },
-    measurement_description: {
-        type: String,
         required: true
     },
     servings: {
