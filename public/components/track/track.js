@@ -20,7 +20,7 @@ app.controller("TrackController", ["$scope", "FoodService", "UserService", funct
             return kCal
         }
        $scope.i = index;
-       Sscope.progress = {
+       $scope.progress = {
            goal: UserService.currentUser.goal,
            now: now(foodList),
            percent: Math.round(this.now / this.goal * 100)
