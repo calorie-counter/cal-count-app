@@ -26,7 +26,10 @@ var userSchema = new Schema({
     height: Number,
     weight: Number,
     gender: String,
-    goal: String
+    goal: {
+        type: Number,
+        default: 2000
+    }
 });
 
 userSchema.pre("save", function (next) {
