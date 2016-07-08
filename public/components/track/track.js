@@ -26,7 +26,7 @@ app.controller("TrackController", ["$scope", "FoodService", "UserService", funct
         $scope.progress = {
             goal : goal,
             now : now,
-            percent : Math.round(now / goal *100);
+            percent : Math.round(now / goal *100)
         }
     }
 
