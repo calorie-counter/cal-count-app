@@ -18,8 +18,8 @@
             <!--    what do we want "goals" section to look like?    -->
             <!-- progress bar values are hardcoded and will need to be changed to be dynamic -->
             <div class="progress">
-                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="progress.now" aria-valuemin="0" aria-valuemax="progress.goal" style="width:40%">
-                    {{ progress.percent }}%
+                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{progress.now}}" aria-valuemin="0" aria-valuemax="{{progress.goal}}" ng-style="{width : ( progress.percent() + '%' ) }">
+                    {{ progress.percent() }}%
                 </div>
             </div>
         </div>
